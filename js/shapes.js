@@ -27,6 +27,21 @@ window.onload = function() {
 
 const sayHello = function() {
     // write your exercise 1 code here
+
+let message = prompt("Enter a Message: ");
+
+while (message.length >= 50){
+  alert("Message Exceeds 50 Characters");
+  message = prompt("Enter a Message: ");
+}
+const canvas = document.getElementById('student-canvas-1');
+const ctx = canvas.getContext('2d');
+ctx.font = '48px sans-serif';
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.strokeText(message, 30, 70, 994);
+
+
+
 };
 
 /*
@@ -34,11 +49,15 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-<<<<<<< HEAD
 
-=======
     // write your exercise 2 code here
->>>>>>> 15938bf39968e1c927974e43ff129a43379a28ee
+    const canvas = document.getElementById('exercise-2');
+    const ctx = canvas.getContext('2d');
+    ctx.font = '48px sans-serif';
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeText(message, 30, 70, 994);
+
+
 };
 
 /*
@@ -46,11 +65,11 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-<<<<<<< HEAD
 
-=======
+
+
     // write your exercise 3 code here
->>>>>>> 15938bf39968e1c927974e43ff129a43379a28ee
+
 };
 
 /*
@@ -58,11 +77,11 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
-<<<<<<< HEAD
 
-=======
+
+
     // write your exercise 4 code here
->>>>>>> 15938bf39968e1c927974e43ff129a43379a28ee
+
 };
 
 /*
@@ -70,11 +89,11 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-<<<<<<< HEAD
 
-=======
+
+
     // write your exercise 4 code here
->>>>>>> 15938bf39968e1c927974e43ff129a43379a28ee
+
 };
 
 /*
@@ -82,10 +101,7 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
-<<<<<<< HEAD
 
-};
-=======
+
     // write your exercise 5 code here
 };
->>>>>>> 15938bf39968e1c927974e43ff129a43379a28ee
