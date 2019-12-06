@@ -19,6 +19,7 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     document.getElementById("hello").onclick = sayHello;
+    document.getElementById("rectangle").onclick = drawRectangle;
 }
 
 /*
@@ -51,11 +52,17 @@ ctx.strokeText(message, 30, 70, 994);
 const drawRectangle = function() {
 
     // write your exercise 2 code here
-    const canvas = document.getElementById('exercise-2');
-    const ctx = canvas.getContext('2d');
-    ctx.font = '48px sans-serif';
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeText(message, 30, 70, 994);
+const canvas = document.getElementById('student-canvas-2');
+    do {
+     var height = prompt("Height: ")
+     var width = prompt("Width: ")
+     var x = prompt("X: ")
+     var y = prompt("Y: ")
+   } while (width > 1024 || width < 1 || height > 1024 || height < 1)
+
+
+
+
 
 
 };
