@@ -20,6 +20,7 @@ window.onload = function() {
 
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
+    document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
 }
 
 /*
@@ -52,13 +53,46 @@ ctx.strokeText(message, 30, 70, 994);
 const drawRectangle = function() {
 
     // write your exercise 2 code here
-const canvas = document.getElementById('student-canvas-2');
-    do {
-     var height = prompt("Height: ")
-     var width = prompt("Width: ")
-     var x = prompt("X: ")
-     var y = prompt("Y: ")
-   } while (width > 1024 || width < 1 || height > 1024 || height < 1)
+
+      const canvas = document.getElementById('student-canvas-2');
+      const ctx = canvas.getContext('2d');
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
+     do {
+       var width = prompt("Width: ")
+       if (width == null) {
+         break;
+       }
+       var height = prompt("Height: ")
+       if (height == null) {
+         break;
+       }
+       var x = prompt("X: ")
+       if (x == null) {
+         break;
+      }
+       var y = prompt("Y: ")
+       if (y == null) {
+         break;
+      }
+       if (width > canvas.width || width < 1) {
+         alert("Your width must be between 1 and 1024.")
+       }
+       if (height > canvas.height || height < 1) {
+         alert("Your height must be between 1 and 512.")
+       }
+       if (x < 1 || x > 1024) {
+         alert("Your x-coordinate must be between 1 and 1024.")
+       }
+       if (y < 1 || y > 512) {
+         alert("Your y-coordinate must be between 1 and 512.")
+       }
+       if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)) {
+         alert("One of your values is not a number.")
+       }
+     } while (width > canvas.width || width < 1 || height > canvas.height || height < 1 || x < 1 || x > 1024 || y < 1 || y > 512 || isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y))
+
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
+     ctx.strokeRect(x, y, width, height);
 
 
 
@@ -73,7 +107,7 @@ const canvas = document.getElementById('student-canvas-2');
 
 const drawColoredRectangle = function() {
 
-
+paul = alert("hi")
 
     // write your exercise 3 code here
 
