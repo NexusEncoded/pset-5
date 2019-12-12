@@ -21,8 +21,9 @@ window.onload = function() {
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
     document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
-    document.getElementById("draw-triangle").onclick = drawRectangle;
+    document.getElementById("draw-triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
+    document.getElementById("pyramid").onlcick = drawPyramid;
 }
 
 /*
@@ -138,8 +139,46 @@ if (color != null) {
 const drawTriangle = function() {
 
     // write your exercise 4 code here
-    const canvas = document.getElementById('student-canvas-4');
-    const ctx = canvas.getContext('2d');
+const canvas = document.getElementById('student-canvas-4');
+ const ctx = canvas.getContext("2d");
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+ do {
+   var side1 = prompt("Side 1: ")
+   var side2 = prompt("Side 2: ")
+   var side3 = prompt("Side 3: ")
+   if (side1 == null || side2 == null || side3 == null) {
+     break;
+   }
+   var hypotenuse = Math.max(side1, side2, side3)
+   var height = Math.min (side1, side2, side3)
+   var base = Math.sqrt(hypotenuse*hypotenuse - height*height)
+
+   side1 = Number(side1)
+   side2 = Number(side2)
+   side3 = Number(side3)
+
+   if (base*base + height*height != hypotenuse*hypotenuse || base == 0 || height == 0 || hypotenuse == 0  || side1+side2+side3-hypotenuse-height != base) {
+     alert("That's not a valid right triangle.")
+ }
+   else if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
+     alert("One of your sides is not a number.")
+ }
+   else if (base > 1024 || height > 512 || hypotenuse > 1310720) {
+     alert("Your triangle won't fit on the canvas.")
+ }
+}   while ((Math.floor(base)*Math.floor(base) + height*height != hypotenuse*hypotenuse) || isNaN(side1) || isNaN(side2) || isNaN(side3) || base > 1024 || height > 512 || hypotenuse > 1310720 || base == 0 || height == 0 || hypotenuse == 0)
+
+ if ((base*base + height*height == hypotenuse*hypotenuse) && (base < 1024 && height < 512 && hypotenuse < 1145) && (base != 0 && height != 0 && hypotenuse != 0) && (base != null && height != null && hypotenuse != null)) {
+   height = height + 25
+   base = base + 25
+   ctx.beginPath();
+   ctx.moveTo(25, 25);
+   ctx.lineTo(25, height);
+   ctx.lineTo(base, height)
+   ctx.lineTo(25, 25)
+   ctx.stroke();
+}
 
 };
 
@@ -150,7 +189,7 @@ const drawTriangle = function() {
 const drawFace = function() {
     // write your exercise 5 code here
     const canvas = document.getElementById('student-canvas-5');
-    
+
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -198,6 +237,47 @@ ctx.closePath();
  */
 
 const drawPyramid = function() {
+
+  const canvas = document.getElementById('student-canvas-6');
+    const ctx = canvas.getContext('2d');
+    var distance = 0
+    var height_1 = 0
+    var distance_modifier = 0
+    var height_modifier = 0
+    var counter = 5
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    do {
+      var side = (prompt("Side: "))
+      if (side == null) {
+        break;
+      }
+      if (side < 1) {
+        alert("Your block size must be at least 1.")
+      }
+      if (side >= 101) {
+        alert("Your pyramid won't fit on the canvas")
+      }
+      if (isNaN(side)) {
+        alert("Your block size is not a number.")
+      }
+    } while (isNaN(side) || side >= 101 || side < 1)
+
+    for (i = 5; i > 0; i--) {
+      counter = i
+      while(counter >= 1) {
+        ctx.beginPath();
+        ctx.rect(10 + Number(distance), (502 - side) - Number(height_1), Number(side), Number(side));
+        ctx.stroke();
+        ctx.closePath();
+        distance = Number(distance) + Number(side)
+        counter--
+      }
+      distance_modifier++
+      distance = distance_modifier * (1/2 * side)
+      height_modifier++
+      height_1 = height_modifier * side
+    }
 
 
     // write your exercise 5 code here
