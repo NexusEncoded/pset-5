@@ -275,4 +275,4 @@ const drawPyramid = function() {
   }
 
 };
-// write your exercise 5 code here
+// write your exercise 5 code herez
